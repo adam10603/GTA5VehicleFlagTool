@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script type="text/javascript" src="js.js"></script>
+</head>
+
+<body>
+    <div id="instructions">
+        Paste flag values from the handling files to decode them<br>and/or click the flag names to modify the value
+    </div>
+    <table id="inputs_table">
+        <tr>
+            <td>
+                <select name="flagtype" id="flagtype" oninput="processFlagType()">
+                    <option value="strModelFlags">strModelFlags</option>
+                    <option value="strHandlingFlags">strHandlingFlags</option>
+                    <option value="strDamageFlags">strDamageFlags</option>
+                    <option value="strAdvancedFlags">strAdvancedFlags</option>
+                </select>
+            </td>
+            <td>
+            =
+            </td>
+            <td>
+                <input type="text" id="flagvalue" name="flagvalue" class="selectable" oninput="processFlagValue()">
+            </td>
+        </tr>
+    </table>
+    <table id="checkboxes_table">
+    </table>
+</body>
+
+</html>
