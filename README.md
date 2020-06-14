@@ -5,7 +5,7 @@ This web-based tool is for inspecting or modifying flag values found in GTA V's 
 
 Supports `strModelFlags`, `strHandlingFlags`, `strDamageFlags` and `strAdvancedFlags`.
 
-**[Visit the site here](https://adam10603.github.io/gta5vehicleflagtool)**
+**[Visit the site here](https://adam10603.github.io/GTA5VehicleFlagTool/)**
 
 ## Version history
 
