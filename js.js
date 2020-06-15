@@ -175,11 +175,7 @@ function drawAllCheckboxes() {
             var newTd = document.createElement("td");
             var flagName = flagNames[flagTypeInput.value][flagVal];
             var unknown = false;
-            if (flagName.length == 0) {
-                flagName = "[unknown]";
-                unknown = true;
-            }
-            checkboxes.push(_newCheckbox(newTd, flagName, flagVal, unknown));
+            checkboxes.push(_newCheckbox(newTd, flagName, flagVal));
             newTr.appendChild(newTd);
         }
         checkboxesTable.appendChild(newTr);
