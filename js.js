@@ -174,7 +174,6 @@ function drawAllCheckboxes() {
         for (var j = 0; j < checkboxesWidth; j++, flagVal++) { // Columns
             var newTd = document.createElement("td");
             var flagName = flagNames[flagTypeInput.value][flagVal];
-            var unknown = false;
             checkboxes.push(_newCheckbox(newTd, flagName, flagVal));
             newTr.appendChild(newTd);
         }
