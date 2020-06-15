@@ -144,7 +144,12 @@ const flagNames = {
     ]
 };
 
-function _newCheckbox(td, flagName, val, unknown) {
+function _newCheckbox(td, flagName, val) {
+    var unknown = false;
+    if (flagName.length == 0) {
+        flagName = "[unknown]";
+        unknown = true;
+    }
     td.className = "flag";
     var newCheckbox = document.createElement('input');
     var valStr = val.toString();
