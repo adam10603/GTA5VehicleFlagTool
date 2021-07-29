@@ -136,7 +136,7 @@ const flagNames = {
         "",
         "",
         "Stock rim radius",
-        "",
+        "Open wheel behavior",
         "Suspension affects roll",
         "",
         "",
