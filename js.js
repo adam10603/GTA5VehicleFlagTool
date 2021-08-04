@@ -207,11 +207,13 @@ function processFlagValue() {
     flagValueInput.value = flagValueInput.value.toUpperCase().substr(0, 8);
     var input = (flagValueInput.value.length > 0) ? flagValueInput.value : 0;
     if (!(/^[0-9a-f]+$/i.test(input))) {
-        flagValueInput.className = "badInput";
+        // flagValueInput.className = "badInput";
+        flagValueInput.classList.add("badInput");
         updateAllCheckboxes(0);
         return;
     } else {
-        flagValueInput.className = "";
+        // flagValueInput.className = "";
+        flagValueInput.classList.remove("badInput");
         var inputNumber = parseInt(input, 16);
         updateAllCheckboxes(inputNumber);
     }
