@@ -1,5 +1,5 @@
 # GTA V Vehicle Flag Tool
-![Version](https://img.shields.io/badge/Version-1.2-green.svg) ![License](https://img.shields.io/badge/License-WTFPL%20v2-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.2-green.svg) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 This web-based tool is for inspecting or modifying flag values found in GTA V's handling files.
 
