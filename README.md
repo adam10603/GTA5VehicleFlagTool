@@ -15,6 +15,3 @@ Supports `strModelFlags`, `strHandlingFlags`, `strDamageFlags` and `strAdvancedF
   * Added `Stock rim radius` and `Suspension affects roll` advanced flags
 * v1.2
   * Added `Open wheel behavior` advanced flag
-
-_____________________
-![WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png) Licensed under WTFPL v2 (see the file [COPYING](COPYING)).
