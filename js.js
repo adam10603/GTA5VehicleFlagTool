@@ -124,34 +124,30 @@ function processFlagTable() {
     processFlagType();
 }
 
-function fetchFlagTable(key, url, after) {
-    fetch(url)
-    .then(res => res.json())
-    .then((out) => {
-        flagTables[key] = out;
-        if (after) after();
-    })
-    .catch((err) => {
-        console.log(err);
-        if (after) after();
-    });
+async function fetchFlagTable(key, url) {
+    let response = await fetch(url);
+
+    if (response.status === 200) {
+        let obj = await response.json();
+        flagTables[key] = obj;
+    }
 }
 
-function fetchAllFlagTables() {
-    fetchFlagTable("adam", "https://raw.githubusercontent.com/adam10603/GTAVFlags/main/flags.json", () => {
-        fetchFlagTable("ikt", "https://raw.githubusercontent.com/E66666666/GTAVHandlingInfo/master/flags.json", () => {
-            if (!flagTables["adam"] || !flagTables["ikt"]) {
-                if (fetchTries-- > 0) {
-                    setTimeout(fetchAllFlagTables, 500);
-                    console.log(`Failed to load flag tables. Retrying ...`);
-                }
-                else alert("Failed to load flag tables. Try refreshing the page!");
-                return;
-            }
-            drawAllCheckboxes();
-            init = true;
-        });
-    });
+async function fetchAllFlagTables() {
+    await fetchFlagTable("default", "https://raw.githubusercontent.com/adam10603/GTAVFlags/main/flags.json");
+    await fetchFlagTable("ikt", "https://raw.githubusercontent.com/E66666666/GTAVHandlingInfo/master/flags.json");
+
+    if (!flagTables["default"] || !flagTables["ikt"]) {
+        if (fetchTries-- > 0) {
+            setTimeout(fetchAllFlagTables, 500);
+            console.warn(`Failed to load flag lookup tables. Retrying ...`);
+        }
+        else alert("Failed to load flag lookup tables. Try refreshing the page!");
+        return;
+    }
+
+    drawAllCheckboxes();
+    init = true;
 }
 
 window.onload = () => {
