@@ -11,13 +11,13 @@
 * {
     box-sizing: border-box;
     font-size: 18px;
-    color: #ffffff;
     font-family: sans-serif;
+    color: var(--normal-text);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: var(--normal-text);
+    
 }
 
 .selectable {
