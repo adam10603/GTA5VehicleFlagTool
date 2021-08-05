@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -21,7 +22,7 @@
                 </select>
             </td>
             <td>
-            =
+                =
             </td>
             <td>
                 <input type="text" id="flagvalue" name="flagvalue" class="selectable" oninput="processFlagValue()">
@@ -29,6 +30,36 @@
         </tr>
     </table>
     <table id="checkboxes_table">
+    </table>
+    <table id="flag_description_table">
+        <tr>
+            <td>
+                Lookup table:
+            </td>
+            <td>
+                <select name="flagtable" id="flagtable" oninput="processFlagTable()">
+                    <option value="adam">Default</option>
+                    <option value="ikt">IKT</option>
+                </select>
+                <div class="tooltip">❓
+                    <span class="tooltiptext">This selects the lookup table for flag names and descriptions. The default table is more closely authored by us (Adam, Chilli, Nismo), while IKT's table has much more flag definitions, but many of those have not been tested by us yet.</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Selected flag:
+            </td>
+            <td id="selected_name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Flag description:
+            </td>
+            <td id="selected_description">
+            </td>
+        </tr>
     </table>
 </body>
 

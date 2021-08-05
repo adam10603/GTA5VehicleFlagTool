@@ -1,4 +1,15 @@
+:root {
+    --dim-text: #7e899e;
+    --normal-text: #c9cacc;
+    --page-bg: #282C34;
+    --dark-bg: #1d2026;
+    --error-bg: #500000;
+    --selected-flag-bg: #034870;
+    --selected-flag-text: white;
+}
+
 * {
+    box-sizing: border-box;
     font-size: 18px;
     color: #ffffff;
     font-family: sans-serif;
@@ -6,6 +17,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    color: var(--normal-text);
 }
 
 .selectable {
@@ -16,12 +28,42 @@
 }
 
 body {
-    background-color: #282C34;
+    background-color: var(--page-bg);
     margin: 30px;
 }
 
-table, td, tr {
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+select {
+    padding: 8px;
+    background-color: var(--dark-bg);
     border: 0px;
+}
+
+input {
+    font-family: monospace;
+    background-color: var(--dark-bg);
+    border: 0px;
+}
+
+.dimmedColor {
+    color: var(--dim-text) !important;
+}
+
+.badInput {
+    background-color: var(--error-bg) !important;
+}
+
+.flagCellPadding {
+    padding: 8px;
+}
+
+#instructions {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #inputs_table {
@@ -29,37 +71,35 @@ table, td, tr {
     margin-right: auto;
 }
 
-#inputs_table td {
+#inputs_table td, #flag_description_table td {
     padding: 10px;
 }
 
-#inputs_table #flagtype {
+#inputs_table input {
     padding: 8px;
-    background-color: #1d2026;
-    color: #ffffff;
-    border: 0px;
+    margin-right: 32px;
     width: 100%;
 }
 
-#inputs_table #flagvalue {
-    font-family: monospace;
-    background-color: #1d2026;
-    padding: 8px;
-    margin-right: 32px;
-    border: 0px;
+#inputs_table select {
     width: 100%;
 }
 
 #checkboxes_table {
+    outline: 2px solid var(--dark-bg);
     margin-top: 30px;
     width: 100%;
     table-layout: fixed;
 }
 
 #checkboxes_table td {
-    font-family: monospace;
-    padding: 5px;
+    outline: 1px solid var(--dark-bg);
+    border: 0px;
+    border-collapse: collapse;
+    padding: 0px;
     text-align: center;
+    width: 100%;
+    height: 100%;
 }
 
 #checkboxes_table label {
@@ -72,20 +112,22 @@ table, td, tr {
     display: none;
 }
 
+/*
 #checkboxes_table input[type="checkbox"]:not(:checked) + div {
-    opacity: 0.75;
+    color: #c9cacc;
 }
+*/
 
 #checkboxes_table input[type="checkbox"]:checked + div {
-    opacity: 1;
-    background-color: #034870;
+    color: var(--selected-flag-text);
+    background-color: var(--selected-flag-bg);
 }
 
 #checkboxes_table .flag_value {
     padding-top: 5px;
     font-family: monospace;
     font-size: 14px;
-    color: #8795b2;
+    color: var(--dim-text);
 }
 
 #checkboxes_table td label div {
@@ -94,16 +136,47 @@ table, td, tr {
     white-space: nowrap;
 }
 
-.dimmedColor {
-    color: #8795b2;
+#flag_description_table {
+    width: 80%;
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.badInput {
-    background-color: #500000 !important;
+#flag_description_table tr td:nth-child(1) {
+    width: 49%;
+    text-align: right;
 }
 
-#instructions {
-    opacity: 0.75;
+#flag_description_table tr:nth-child(1) td:nth-child(2) {
+    padding: 0px;
+}
+
+#flagtable {
+    margin-right: 10px;
+}
+
+/* Tooltip stuff */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: calc(100vw * 0.35);
+    background-color: black;
+    color: var(--normal-text);
     text-align: center;
-    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 10px 10px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
