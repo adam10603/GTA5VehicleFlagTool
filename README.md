@@ -1,5 +1,5 @@
 # GTA V Vehicle Flag Tool
-![Version](https://img.shields.io/badge/Version-1.3-green.svg) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.31-green.svg) ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
 This web-based tool is for inspecting or modifying flag values found in GTA V's handling files.
 
@@ -20,3 +20,5 @@ It has the option to use either [my own](https://github.com/adam10603/GTAVFlags)
 * v1.3
   * Moved the lookup table to a central repo.
   * Added the option for choosing lookup tables between mine and IKT's.
+* v1.31
+  * Small code changes

@@ -25,7 +25,7 @@ function _newCheckbox(td, currentFlag, val) {
         unknown = true;
     }
     td.className = "flag";
-    let newCheckbox = document.createElement('input');
+    let newCheckbox = document.createElement("input");
     let valStr = val.toString();
     newCheckbox.type = "checkbox";
     newCheckbox.name = flagName;
@@ -45,13 +45,12 @@ function _newCheckbox(td, currentFlag, val) {
     newLabel.onchange = () => {
         updateFlagValue();
     };
-    // newLabel.innerHTML += (unknown ? "<div class=\"dimmedColor\">" : "<div>") + flagName + "<br>" + "<div class=\"flag_value\">(1 << " + val + ")</div></div>";
     newLabel.innerHTML += `${(unknown ? "<div class=\"dimmedColor flagCellPadding\">" : "<div class=\"flagCellPadding\">")}${flagName}<br><div class=\"flag_value\">(1 << ${val})</div></div>`;
     td.appendChild(newLabel);
     return newCheckbox;
 }
 
-function drawAllCheckboxes() {
+function redrawCheckboxes() {
     checkboxes = [];
     checkboxesTable.innerHTML = "";
     let flagVal = 0;
@@ -116,7 +115,7 @@ function processFlagType() {
 
     clearSelectedNameAndDesc();
 
-    drawAllCheckboxes();
+    redrawCheckboxes();
     processFlagValue();
 }
 
@@ -127,7 +126,7 @@ function processFlagTable() {
 async function fetchFlagTable(key, url) {
     let response = await fetch(url);
 
-    if (response.status === 200) {
+    if (response?.status === 200) {
         let obj = await response.json();
         flagTables[key] = obj;
     }
@@ -145,20 +144,20 @@ async function fetchAllFlagTables() {
         else alert("Failed to load flag lookup tables. Try refreshing the page!");
         return;
     }
-
-    drawAllCheckboxes();
-    init = true;
 }
 
 window.onload = () => {
-    flagValueInput = document.getElementById("flagvalue");
-    flagTypeInput = document.getElementById("flagtype");
-    checkboxesTable = document.getElementById("checkboxes_table");
-    flagTableInput = document.getElementById("flagtable");
-    selectedName = document.getElementById("selected_name");
+    flagValueInput      = document.getElementById("flagvalue");
+    flagTypeInput       = document.getElementById("flagtype");
+    checkboxesTable     = document.getElementById("checkboxes_table");
+    flagTableInput      = document.getElementById("flagtable");
+    selectedName        = document.getElementById("selected_name");
     selectedDescription = document.getElementById("selected_description");
 
     flagValueInput.value = "0";
 
-    fetchAllFlagTables();
+    fetchAllFlagTables().then(() => {
+        redrawCheckboxes();
+        init = true;
+    });
 };
