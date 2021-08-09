@@ -1,16 +1,15 @@
-let checkboxes = [];
-let flagValueInput = null;
-let flagTypeInput = null;
-let checkboxesTable = null;
-let flagTableInput = null;
-let selectedName = null;
+let checkboxes          = [];
+let flagValueInput      = null;
+let flagTypeInput       = null;
+let checkboxesTable     = null;
+let flagTableInput      = null;
+let selectedName        = null;
 let selectedDescription = null;
-let init = false;
-let fetchTries = 5;
+let init                = false;
+let fetchTries          = 5;
+let flagTables          = {};
 
-const checkboxesWidth = 4;
-
-let flagTables = {};
+const columnCount = 4;
 
 function clearSelectedNameAndDesc() {
     selectedName.innerText = "";
@@ -56,9 +55,9 @@ function redrawCheckboxes() {
     let flagVal = 0;
     let currentTable = flagTableInput.value;
     let currentType = flagTypeInput.value;
-    for (let i = 0; i < Math.ceil(32 / checkboxesWidth); i++) { // Rows
+    for (let i = 0; i < Math.ceil(32 / columnCount); i++) { // Rows
         let newTr = document.createElement("tr");
-        for (let j = 0; j < checkboxesWidth; j++, flagVal++) { // Columns
+        for (let j = 0; j < columnCount; j++, flagVal++) { // Columns
             let newTd = document.createElement("td");
             let currentFlag = flagTables[currentTable]["flags"][currentType][flagVal];
             checkboxes.push(_newCheckbox(
