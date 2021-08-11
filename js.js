@@ -136,13 +136,26 @@ async function fetchAllFlagTables() {
     await fetchFlagTable("ikt", "https://raw.githubusercontent.com/E66666666/GTAVHandlingInfo/master/flags.json");
 
     if (!flagTables["default"] || !flagTables["ikt"]) {
+        throw new Error("Failed to load flag lookup tables. Retrying ...");
+    }
+}
+
+function postFetchTables() {
+    flagTableInput.options[0].innerText += ` (v${flagTables["default"]["version"]})`;
+    flagTableInput.options[1].innerText += ` (v${flagTables["ikt"]["version"]})`;
+
+    redrawCheckboxes();
+    init = true;
+}
+
+function initTables() {
+    fetchAllFlagTables().then(postFetchTables).catch((err) => {
         if (fetchTries-- > 0) {
-            setTimeout(fetchAllFlagTables, 500);
-            console.warn(`Failed to load flag lookup tables. Retrying ...`);
+            console.warn(err);
+            setTimeout(initTables, 500);
         }
         else alert("Failed to load flag lookup tables. Try refreshing the page!");
-        return;
-    }
+    });
 }
 
 window.onload = () => {
@@ -155,8 +168,5 @@ window.onload = () => {
 
     flagValueInput.value = "0";
 
-    fetchAllFlagTables().then(() => {
-        redrawCheckboxes();
-        init = true;
-    });
+    initTables();
 };
