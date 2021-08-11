@@ -1,6 +1,7 @@
 :root {
     --dim-text: #7e899e;
     --normal-text: #c9cacc;
+    --link-color: #6dbdf3;
     --page-bg: #282C34;
     --dark-bg: #1d2026;
     --error-bg: #500000;
@@ -17,7 +18,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    
 }
 
 .selectable {
@@ -59,6 +59,30 @@ input {
 
 .flagCellPadding {
     padding: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+    .hideWhenSmall {
+        visibility: hidden;
+    }
+}
+
+#github_link_container {
+    color: var(--link-color);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    position: absolute;
+}
+
+#github_link_container:hover {
+    text-decoration: underline;
+}
+
+#github_logo {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
 }
 
 #instructions {
@@ -166,7 +190,7 @@ input {
 
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: calc(100vw * 0.35);
+    width: calc(100vw * 0.5 - 250px);
     background-color: black;
     color: var(--normal-text);
     text-align: center;
