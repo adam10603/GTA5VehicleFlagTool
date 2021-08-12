@@ -7,6 +7,7 @@
     --error-bg: #500000;
     --selected-flag-bg: #034870;
     --selected-flag-text: white;
+    --inputs-width: 220px;
 }
 
 * {
@@ -91,8 +92,31 @@ input {
 }
 
 #inputs_table {
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+}
+
+#inputs_table tr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inputs_table tr td {
+    text-align: center;
+}
+
+#inputs_table tr td:nth-child(1) {
+    max-width: var(--inputs-width);
+    width: 100%;
+}
+
+#inputs_table tr td:nth-child(2) {
+    width: 32px;
+}
+
+#inputs_table tr td:nth-child(3) {
+    max-width: var(--inputs-width);
+    width: 100%;
 }
 
 #inputs_table td, #flag_description_table td {
@@ -101,7 +125,6 @@ input {
 
 #inputs_table input {
     padding: 8px;
-    margin-right: 32px;
     width: 100%;
 }
 
@@ -168,7 +191,7 @@ input {
 }
 
 #flag_description_table tr td:nth-child(1) {
-    width: 49%;
+    width: 50%; /* 49? */
     text-align: right;
 }
 
@@ -178,6 +201,8 @@ input {
 
 #flagtable {
     margin-right: 10px;
+    width: auto;
+    max-width: 70%
 }
 
 /* Tooltip stuff */
