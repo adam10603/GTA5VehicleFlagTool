@@ -19,7 +19,7 @@ function clearSelectedNameAndDesc() {
 function _newCheckbox(td, currentFlag, val) {
     let unknown = false;
     var flagName = currentFlag.name;
-    if (flagName.length === 0 || flagName.includes("UNKNOWN_FLAG")) {
+    if (flagName.length === 0 || flagName.includes("_UNKNOWN_")) {
         flagName = "[unknown]";
         unknown = true;
     }
