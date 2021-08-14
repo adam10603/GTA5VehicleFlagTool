@@ -8,11 +8,13 @@
     --selected-flag-bg: #034870;
     --selected-flag-text: white;
     --inputs-width: 220px;
+    --normal-font-size: 18px;
+    --small-font-size: 14px;
 }
 
 * {
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: var(--normal-font-size);
     font-family: sans-serif;
     color: var(--normal-text);
     -webkit-user-select: none;
@@ -50,11 +52,6 @@ input {
     border: 0px;
 }
 
-abbr {
-    text-decoration: none;
-    border-bottom: 1px dotted black;
-}
-
 .dimmedColor {
     color: var(--dim-text) !important;
 }
@@ -77,7 +74,7 @@ abbr {
     color: var(--link-color);
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: var(--small-font-size);
     position: absolute;
 }
 
@@ -176,9 +173,9 @@ abbr {
 }
 
 #checkboxes_table .flag_value {
-    padding-top: 5px;
+    margin-top: 5px;
     font-family: monospace;
-    font-size: 14px;
+    font-size: var(--small-font-size);
     color: var(--dim-text);
 }
 
@@ -212,7 +209,7 @@ abbr {
 
 /* Tooltip stuff */
 
-/*
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -235,4 +232,3 @@ abbr {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
-*/
