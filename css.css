@@ -50,6 +50,11 @@ input {
     border: 0px;
 }
 
+abbr {
+    text-decoration: none;
+    border-bottom: 1px dotted black;
+}
+
 .dimmedColor {
     color: var(--dim-text) !important;
 }
@@ -207,6 +212,7 @@ input {
 
 /* Tooltip stuff */
 
+/*
 .tooltip {
     position: relative;
     display: inline-block;
@@ -229,3 +235,4 @@ input {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+*/
