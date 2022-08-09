@@ -132,12 +132,11 @@ async function fetchFlagTable(key, url) {
 }
 
 async function fetchAllFlagTables() {
-    await fetchFlagTable("default", "https://raw.githubusercontent.com/adam10603/GTAVFlags/main/flags.json");
-    await fetchFlagTable("ikt", "https://raw.githubusercontent.com/E66666666/GTAVHandlingInfo/master/flags.json");
+    if (!flagTables["default"]) await fetchFlagTable("default", "https://raw.githubusercontent.com/adam10603/GTAVFlags/main/flags.json");
+    if (!flagTables["default"]) throw new Error("Failed to load a flag lookup table. Retrying ...");
 
-    if (!flagTables["default"] || !flagTables["ikt"]) {
-        throw new Error("Failed to load flag lookup tables. Retrying ...");
-    }
+    if (!flagTables["ikt"]) await fetchFlagTable("ikt", "https://raw.githubusercontent.com/E66666666/GTAVHandlingInfo/master/flags.json");
+    if (!flagTables["ikt"]) throw new Error("Failed to load a flag lookup table. Retrying ...");
 }
 
 function postFetchTables() {

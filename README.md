@@ -34,3 +34,4 @@ It has the option to use either [my own](https://github.com/adam10603/GTAVFlags)
   * Small code changes
 * v1.35
   * Updated tooltip
+  * Small code changes
